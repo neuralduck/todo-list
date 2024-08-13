@@ -1,0 +1,95 @@
+<!doctype html>
+<html>
+    <head>
+        <meta charset="utf-8" />
+        <meta name="viewport" content="width=device-width, initial-scale=1" />
+        <title>Todo</title>
+
+        <script>
+            var count = 0;
+            function add_todo() {
+                //alert(document.getElementById('entry').value);
+                const text = document.getElementById("input").value;
+                document.getElementById("input").value = "";
+                if (text !== "") {
+                    count += 1;
+                    const node = document.createElement("div");
+                    node.id = 'entry_'+count;
+                    node.innerHTML = "<button onclick=document.getElementById(this.parentNode.id).remove() class='delete'>x</button> "+text;
+                    document.body.appendChild(node);
+                }
+                
+            }
+
+            function enter(){
+                if(event.key === 'Enter'){
+                    add_todo()
+                }
+                
+            }
+        </script>
+
+        <style type="text/css">
+            body {
+                background-color: #FAFAFA;
+                font-size: 16px;
+                font-family: sans-serif;
+            }
+            div {
+                background-color: #B3E5FC;
+                border-radius: 4px;
+                box-shadow: 0 2px 4px rgba(0,0,0,0.1), 0 4px 8px rgba(0,0,0,0.1);
+                padding: 16px;
+                margin: 16px;
+                transition: box-shadow 0.3s ease-in-out;
+                text-align: justify;
+            }
+
+            input {
+                width: 50%;
+                border: none;
+                border-bottom: 1px solid black;
+                color: black;
+                background: transparent;
+                outline: none;
+                font-size: 16px;
+            }
+
+            .add {
+                background-color: #1976d2;
+                color: white;
+                border: none;
+                border-radius: 50%;
+                width: 56px;
+                height: 56px;
+                font-size: 24px;
+                cursor: pointer;
+                box-shadow: 0 3px 5px -1px rgba(0,0,0,0.2), 0 6px 10px 0 rgba(0,0,0,0.14), 0 1px 18px 0 rgba(0,0,0,0.12);
+                transition: background-color 0.3s, box-shadow 0.3s;
+                outline: none;
+            }
+            .delete {
+                background-color: #1976d2;
+                color: white;
+                border: none;
+                border-radius: 50%;
+                width: 36px;
+                height: 36px;
+                font-size: 14px;
+                cursor: pointer;
+                box-shadow: 0 3px 5px -1px rgba(0,0,0,0.2), 0 6px 10px 0 rgba(0,0,0,0.14), 0 1px 18px 0 rgba(0,0,0,0.12);
+                transition: background-color 0.3s, box-shadow 0.3s;
+                outline: none;
+            }
+        </style>
+    </head>
+
+    <body>
+        <div style="text-align: center; background-color: #E1F5FE;">
+            <input type="text" id="input" name="input" required onkeydown="enter()" />
+            <button onclick="add_todo()" class="add" id="add_button">+</button>
+        </div>
+        
+        <hr />
+    </body>
+</html>

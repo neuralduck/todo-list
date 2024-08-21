@@ -36,9 +36,3 @@ function remove(element){
     document.getElementById(element.parentNode.id).remove();
 
 }
-function enter(){
-    if(event.key === 'Enter'){
-        add_todo()
-    }
-    
-}

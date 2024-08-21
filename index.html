@@ -10,7 +10,7 @@
 
     <body>
         <div style="text-align: center; background-color: #E1F5FE;">
-            <input type="text" id="input" name="input" required onkeydown="enter()" />
+            <input type="text" id="input" name="input" required onkeydown="if(event.key === 'Enter'){add_todo();}" />
             <button onclick="add_todo()" class="add" id="add_button">+</button>
         </div>
         <hr/>
